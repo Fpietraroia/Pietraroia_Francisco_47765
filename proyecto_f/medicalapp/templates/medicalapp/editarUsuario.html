@@ -1,0 +1,74 @@
+{% extends "medicalapp/padre.html" %}
+{% load static %}
+
+{% block top %}
+
+<!------------------- Estilos para el formulario ------------------------------>
+
+<style>
+    /* Estilos para el contenedor del formulario */
+    .registration-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+  
+    /* Estilos para los campos de entrada */
+    .registration-container input[type="text"],
+    .registration-container input[type="email"],
+    .registration-container input[type="password"],
+    .registration-container input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  
+    /* Estilos para las etiquetas de los campos */
+    .registration-container label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  
+    /* Estilos para el botón de registro */
+    .registration-container button {
+      background-color: #1ABC9C;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+  
+    /* Estilos para el botón de registro al pasar el mouse */
+    .registration-container button:hover {
+      background-color: #136e5c;
+    }
+  </style>
+
+<!------------------- Formulario edicion de usuario ------------------------------>
+
+<div class="registration-container">
+<h2>Editar Usuario</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar cambios</button>
+  </form>
+</div>  
+  {% endblock %}
+
+<!------------------- Pie de pagina ------------------------------>
+  
+{% block foot %}
+<p style = "font-size: 20px;
+color: #1ABC9C;
+text-align: center;
+margin-top: 10px;"> Todos los derechos reservados. </p>
+
+{% endblock %}

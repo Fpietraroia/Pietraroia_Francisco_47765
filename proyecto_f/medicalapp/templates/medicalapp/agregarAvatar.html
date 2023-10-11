@@ -1,0 +1,85 @@
+{% extends "medicalapp/padre.html" %}
+
+{% block top %}
+
+<!------------------- Estilos para el formulario ------------------------------>
+
+<style>
+    /* Estilos para el contenedor del formulario */
+    .avatar-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+  
+    /* Estilos para los campos de entrada */
+    .avatar-container input[type="text"],
+    .avatar-container input[type="email"],
+    .avatar-container input[type="password"],
+    .avatar-container input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  
+    /* Estilos para las etiquetas de los campos */
+    .avatar-container label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  
+    /* Estilos para el botón de registro */
+    .avatar-container button {
+      background-color: #1ABC9C;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  
+    /* Estilos para el botón de registro al pasar el mouse */
+    .avatar-container button:hover {
+      background-color: #12725f;
+    }
+  </style>
+
+<!------------------- Formulario de avatar ------------------------------>
+
+<p style="text-align: center; font-size: 80px; padding: 20px; border-radius: 5px; margin-top: 100px; margin-bottom: 50px;">
+    Agrega un Avatar a tu perfil!
+</p>
+<div class="avatar-container">
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Guardar Avatar</button>
+</form>
+</div>
+
+{% endblock %}
+
+{% block foot %}
+<p style = "font-size: 20px;
+color: #1ABC9C;
+text-align: center;
+margin-top: 10px;"> Todos los derechos reservados. </p>
+
+{% endblock %}
+
+<!------------------- Pie de pagina ------------------------------>
+
+{% block foot %}
+<p style = "font-size: 20px;
+color: #1ABC9C;
+text-align: center;
+margin-top: 10px;"> Todos los derechos reservados. </p>
+
+{% endblock %}

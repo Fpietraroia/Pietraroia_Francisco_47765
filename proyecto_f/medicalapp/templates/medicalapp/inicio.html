@@ -1,0 +1,41 @@
+{% extends "medicalapp/padre.html" %}
+
+<!---------------- Mensaje de bienvenida --------------------->
+
+{% block top %}
+
+{% if request.user.is_not_authenticated %}
+
+<p style="text-align: center; font-size: 100px; padding: 20px; border-radius: 5px; margin-top: 100px; margin-bottom: 50px;">
+    {{ mensaje }}
+</p>
+
+<p style = "font-size: 20px;
+color: #1ABC9C;
+text-align: center;
+margin-top: 10px; margin-bottom: 100px;">{{ mensaje2 }}</p>
+
+{% else %}
+
+<p style="text-align: center; font-size: 100px; padding: 20px; border-radius: 5px; margin-top: 100px; margin-bottom: 50px;">
+    {{ mensaje }} {{user.first_name}}
+</p>
+
+{% with user.avatar_set.first as userAvatar %}
+				{% if userAvatar %}
+				<img src="{{userAvatar.imagen.url}}" alt="" style="max-width: 1000px; margin-left: 550px; margin-bottom: 100px;">
+				{% endif %}
+				{% endwith %}
+{% endif%}
+
+{% endblock %}
+
+<!------------------- Pie de pagina ------------------------------>
+
+{% block foot %}
+<p style = "font-size: 20px;
+color: #1ABC9C;
+text-align: center;
+margin-top: 10px;"> Todos los derechos reservados. </p>
+
+{% endblock %}
