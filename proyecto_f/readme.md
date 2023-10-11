@@ -47,8 +47,8 @@ Para acceder al panel de administración de MedicalDB como superusuario, sigue e
 2. Abre tu navegador web y ve a `http://localhost:8000/admin/`.
 
 3. Inicia sesión con las siguientes credenciales:
-   - **Usuario**: [Inserta el nombre de usuario del superusuario]
-   - **Contraseña**: [Inserta la contraseña del superusuario]
+   - **Usuario**: fpietraroia@gmail.com
+   - **Contraseña**: feli1012
 
 El superusuario tiene acceso completo al panel de administración de Django y puede gestionar todos los aspectos de la aplicación.
 
