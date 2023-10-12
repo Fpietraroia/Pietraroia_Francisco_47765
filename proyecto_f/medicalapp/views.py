@@ -93,8 +93,9 @@ def editar_usuario(request):
             usuario.last_name = datos["last_name"]
 
             usuario.save()
+            login(request, usuario)
 
-            return render(request, "medicalapp/inicio.html",{"mensaje":"Se guardaron tus cambios"})
+            return render(request, "medicalapp/inicio.html",{"mensaje":"Bienvenido "})
         
     else:
 
