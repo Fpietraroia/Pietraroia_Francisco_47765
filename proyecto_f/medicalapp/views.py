@@ -331,13 +331,14 @@ def agregar_internado(request):
             medico_numero_matricula = datos['medico']
             medico = Medicos.objects.get(numero_matricula=medico_numero_matricula)
 
-            paciente = Pacientes(
+            paciente = PacientesInternados(
                 documento=datos['documento'],
                 nombre=datos['nombre'],
                 apellido=datos['apellido'],
                 sexo=datos['sexo'],
                 nacimiento=datos['nacimiento'],
-                u_consulta=datos['u_consulta'],
+                fecha_ingreso=datos['fecha_ingreso'],
+                sala_asignada=datos['sala_asignada'],
                 medico=medico.numero_matricula 
             )
 
@@ -404,13 +405,14 @@ def editar_internado(request, pacienteDNI):
             medico_numero_matricula = datos['medico']
             medico = Medicos.objects.get(numero_matricula=medico_numero_matricula)
 
-            paciente = Pacientes(
+            paciente = PacientesInternados(
                 documento=datos['documento'],
                 nombre=datos['nombre'],
                 apellido=datos['apellido'],
                 sexo=datos['sexo'],
                 nacimiento=datos['nacimiento'],
-                u_consulta=datos['u_consulta'],
+                fecha_ingreso=datos['fecha_ingreso'],
+                sala_asignada=datos['sala_asignada'],
                 medico=medico.numero_matricula 
             )
 

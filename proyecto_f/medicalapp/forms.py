@@ -65,7 +65,7 @@ class FormularioInternados(forms.Form):
         medico = forms.ChoiceField(choices=[])
 
         def __init__(self, *args, **kwargs):
-            super(FormularioPacientes, self).__init__(*args, **kwargs)
+            super(FormularioInternados, self).__init__(*args, **kwargs)
             medicos = Medicos.objects.all()
             choices = [(str(m.numero_matricula), str(m.numero_matricula)) for m in medicos]
             self.fields['medico'].choices = choices
