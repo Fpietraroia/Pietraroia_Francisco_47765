@@ -59,6 +59,12 @@ MedicalDB cuenta con varias vistas, algunas de las cuales requieren que los usua
 
 - **Acerca de Mí**: Una vista personal que brinda información sobre el autor del proyecto.
 
+## Video de la App
+
+Adjunto video mostrando como funciona la App
+
+`https://youtu.be/h92S4lL0xnw`
+
 ## Ingreso a la pagina
 
 Para acceder a MedicalDB, sigue estos pasos:
