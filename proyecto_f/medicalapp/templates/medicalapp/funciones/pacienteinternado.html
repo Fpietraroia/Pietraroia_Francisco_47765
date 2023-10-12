@@ -63,16 +63,16 @@
 <!------------------- Formulario de paciente ------------------------------>
 
 <div class="container-form">
-    <h1>Agregar Paciente</h1>
+    <h1>Editar Ingresado</h1>
     <form method="post" class="patient-form">
         {% csrf_token %}
-        {{ miformulario.as_p }}
+        {{ form.as_p }}
         <button type="submit" class="submit-button">Guardar</button>
     </form>
 
 <!------------------- Boton para eliminar el paciente ------------------------------>
 
-    <form method="post" action="{% url 'EliminarPaciente' pacienteDNI=documento %}" class="delete-form">
+    <form method="post" action="{% url 'EliminarInternado' pacienteDNI=documento %}" class="delete-form">
         {% csrf_token %}
         <button type="submit" class="delete-button">Eliminar Paciente</button>
     </form>

@@ -1,0 +1,147 @@
+{% extends "medicalapp/padre.html" %}
+
+{% block top %}
+
+<!------------------- Estilos para la lista ------------------------------>
+
+<style>
+
+    /* Estilos para los formularios de búsqueda */
+    .busqueda-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 20px;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+    .busqueda-form {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-right: 250px; 
+    }
+
+    .busqueda-label {
+        margin-right: 20px;
+        flex: 1; 
+        width: 160px;
+        margin-left: 20px;
+    }
+
+    .busqueda-input {
+        flex: 2; 
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        height: 80px;
+        
+    }
+
+    .busqueda-button {
+        padding: 10px 20px;
+        background-color: #1ABC9C;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+
+
+/* Estilos para la tabla */
+table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Estilos para el boton */
+
+.boton-redireccion {
+    display: inline-block;
+    padding: 10px 100px;
+    background-color: #1ABC9C;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    margin-left: 500px;
+    margin-bottom: 20px;
+  }
+</style>
+
+<div class = "busqueda-container"> 
+<form class="busqueda-form" method="get">
+    <label class="busqueda-label" for="{{ form_id.id.id }}">{{ form_id.id.label }}</label>
+    {{ form_id.id }}
+    <button class="busqueda-button" type="submit" name="buscar_id">Buscar</button>
+</form>
+
+<!-- Formulario de búsqueda por médico -->
+<form class="busqueda-form" method="get">
+    <label class="busqueda-label" for="{{ form_loc.localidad.id }}">{{ form_loc.localidad.label }}</label>
+    {{ form_loc.localidad }}
+    <button class="busqueda-button" type="submit" name="buscar_localidad">Buscar</button>
+</form>
+</div>
+
+<!------------------- Lista de pacientes ------------------------------>
+
+<body>
+    <h1>Lista de Hospitales</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Localidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for hospitales in hospitales %}
+                <tr>
+                    <td>{{ hospitales.id }}</td>
+                    <td>{{ hospitales.nombre }}</td>
+                    <td><a href="https://www.google.com/maps/" target="_blank">{{ hospitales.direccion }}</a></td>
+                    <td>{{ hospitales.localidad }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+<!------------------- Boton para agregar paciente ----------------------------
+
+<a href="{% url 'AgregarPaciente' %}" class="boton-redireccion">
+    Agregar Paciente
+  </a>
+
+{% endblock %}-->
+
+<!------------------- Pie de pagina ------------------------------>
+
+{% block foot %}
+<p style = "font-size: 20px;
+color: #1ABC9C;
+text-align: center;
+margin-top: 10px;"> Todos los derechos reservados. </p>
+
+{% endblock %}

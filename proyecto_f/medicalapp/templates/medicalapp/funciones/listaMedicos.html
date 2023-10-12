@@ -1,0 +1,137 @@
+{% extends "medicalapp/padre.html" %}
+
+{% block top %}
+
+<!------------------- Estilos ------------------------------------------->
+
+<style>
+
+/* Estilos para el contenedor del formulario */
+.busqueda-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 300px;
+    margin: 20px auto;
+    margin-top: 20px;
+}
+
+/* Estilos para los formularios */
+.busqueda-form {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para las etiquetas */
+.busqueda-label {
+    display: flex;
+    width: 180px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+/* Estilos para los campos de entrada */
+.busqueda-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 30px;
+}
+
+/* Estilos para el botón de búsqueda */
+.busqueda-button {
+    padding: 10px 20px;
+    background-color: #1ABC9C;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Estilos para la tabla */
+table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Estilos para el boton */
+
+.boton-redireccion {
+    display: inline-block;
+    padding: 10px 100px;
+    background-color: #1ABC9C;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    margin-left: 500px;
+    margin-bottom: 20px;
+  }
+</style>
+
+
+<!-- Formulario de búsqueda por médico -->
+<form class="busqueda-form" method="get">
+    <label class="busqueda-label" for="{{ form_doc.doc.id }}">{{ form_doc.doc.label }}</label>
+    {{ form_doc.doc }}
+    <button class="busqueda-button" type="submit" name="buscar_medico">Buscar</button>
+</form>
+</div>
+
+<!------------------- Lista de medicos ------------------------------>
+
+
+<body>
+    <h1>Lista de Médicos</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Número de Matrícula</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Hospital</th>
+        <th>Rama</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for medico in medicos %}
+        <tr>
+          <td><a href="{% url 'EditarMedico' medico.numero_matricula %}">{{ medico.numero_matricula }}</a></td>
+          <td>{{ medico.user.first_name }}</td>
+          <td>{{ medico.user.last_name }}</td>
+          <td>{{ medico.hospital.nombre }}</td>
+          <td>{{ medico.rama }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+
+
+{% endblock %}
+
+<!------------------- Pie de pagina ------------------------------>
+
+{% block foot %}
+<p style = "font-size: 20px;
+color: #1ABC9C;
+text-align: center;
+margin-top: 10px;"> Todos los derechos reservados. </p>
+
+{% endblock %}

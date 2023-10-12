@@ -50,14 +50,15 @@
 				
 				{% with user.avatar_set.first as userAvatar %}
 				{% if userAvatar %}
-				<img src="{{userAvatar.imagen.url}}" alt="" style="max-width: 100px;">
+				<a href="{% url 'EditarUsuario' %}"><img src="{{userAvatar.imagen.url}}" alt="" style="max-width: 100px;"></a>
 				{% endif %}
 				{% endwith %} 
 				
-				<li><a href="{% url 'AgregarPaciente' %}">Agrega un paciente</a></li>
+				<li><a href="{% url 'ListaInternados' %}">Lista en Internacion</a></li>
 				<li><a href="{% url 'ListaPacientes' %}">Lista de Pacientes</a></li>
-				<li><a href="{% url 'EditarUsuario' %}">Editar Usuario</a></li>
-				<li><a href="{% url 'AgregarAvatar' %}">Agregar Avatar</a></li>
+				<li><a href="{% url 'ListaMedicos' %}">Medicos</a></li>
+				<li><a href="{% url 'ListaHospitales' %}">Hospitales</a></li>
+				<li><a href="{% url 'SobreMi' %}">Sobre mi</a></li>
 				<li><a href="{% url 'Logout' %}">Salir</a></li>
 			
 			{% else %}
@@ -67,7 +68,7 @@
 
 			{% endif %}
             
-            <li><a href="{% url 'SobreMi' %}">Sobre mi</a></li>
+            
             <!--<li><a href="contact.html">Contact</a></li>-->
           </ul>
         </div><!--/.nav-collapse -->

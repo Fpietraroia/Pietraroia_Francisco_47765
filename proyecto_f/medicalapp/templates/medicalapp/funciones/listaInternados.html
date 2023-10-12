@@ -6,38 +6,36 @@
 
 <style>
 
-    /* Estilos para los formularios de búsqueda */
-    .busqueda-container {
+/* Estilos para los formularios de búsqueda */
+.busqueda-container {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
         margin-bottom: 20px;
-        max-width: 600px;
-        margin-top: 20px;
+        margin-top: 10px;
+        max-width: 600px; 
     }
 
     .busqueda-form {
         flex: 1;
         display: flex;
-        justify-content: space-between;
         align-items: flex-end;
-        margin-right: 250px; 
+        margin-right: 10px; 
     }
 
     .busqueda-label {
-        margin-right: 20px;
+        margin-right: 0px;
         flex: 1; 
         width: 160px;
-        margin-left: 20px;
+        margin-left: 13px;
     }
 
     .busqueda-input {
-        flex: 2; 
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        height: 80px;
-        
+        flex: 2;
+        height: 40px; 
     }
 
     .busqueda-button {
@@ -47,9 +45,8 @@
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        margin-left: 20px;
+        margin-left: 5px; 
     }
-
 
 /* Estilos para la tabla */
 table {
@@ -71,9 +68,27 @@ table {
     tr:nth-child(even) {
         background-color: #f2f2f2;
     }
+
+/* Estilos para el boton de agregar */
+
+.boton-redireccion {
+    display: inline-block;
+    padding: 10px 100px;
+    background-color: #1ABC9C;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    margin-left: 500px;
+    margin-bottom: 20px;
+  }
+
 </style>
 
+<!------------------------------ Buscadores -------------------------------------->
+
 <div class = "busqueda-container"> 
+<!-- Formulario de búsqueda por documento -->
 <form class="busqueda-form" method="get">
     <label class="busqueda-label" for="{{ form_dni.dni.id }}">{{ form_dni.dni.label }}</label>
     {{ form_dni.dni }}
@@ -86,16 +101,20 @@ table {
     {{ form_doc.doc }}
     <button class="busqueda-button" type="submit" name="buscar_medico">Buscar</button>
 </form>
-</div>
 
+<!-- Formulario de búsqueda por documento -->
+<form class="busqueda-form" method="get">
+    <label class="busqueda-label" for="{{ form_sala.sala.id }}">{{ form_sala.sala.label }}</label>
+    {{ form_sala.sala }}
+    <button class="busqueda-button" type="submit" name="buscar_sala">Buscar</button>
+</form>
+
+</div>
 <!------------------- Lista de pacientes ------------------------------>
 
-<head>
-    <title>Lista de Pacientes</title>
-  
-</head>
+
 <body>
-    <h1>Lista de Pacientes</h1>
+    <h1>Lista de Pacientes en Internacion</h1>
     <table>
         <thead>
             <tr>
@@ -104,19 +123,21 @@ table {
                 <th>Apellido</th>
                 <th>Sexo</th>
                 <th>Fecha de Nacimiento</th>
-                <th>Última Consulta</th>
+                <th>Fecha de Ingreso</th>
+                <th>Sala</th>
                 <th>Médico Asignado</th>
             </tr>
         </thead>
         <tbody>
             {% for paciente in pacientes %}
                 <tr>
-                    <td><a href="{% url 'DetallePacientes' paciente.documento %}">{{ paciente.documento }}</a></td>
+                    <td><a href="{% url 'DetalleInternado' paciente.documento %}">{{ paciente.documento }}</a></td>
                     <td>{{ paciente.nombre }}</td>
                     <td>{{ paciente.apellido }}</td>
                     <td>{{ paciente.sexo }}</td>
                     <td>{{ paciente.nacimiento }}</td>
-                    <td>{{ paciente.u_consulta }}</td>
+                    <td>{{ paciente.fecha_ingreso }}</td>
+                    <td>{{ paciente.sala_asignada }}</td>
                     <td>{{ paciente.medico }}</td>
                 </tr>
             {% endfor %}
@@ -124,6 +145,11 @@ table {
     </table>
 </body>
 
+<!------------------- Boton para agregar paciente ------------------------------>
+
+<a href="{% url 'AgregarInternado' %}" class="boton-redireccion">
+    Agregar Paciente
+  </a>
 
 {% endblock %}
 
